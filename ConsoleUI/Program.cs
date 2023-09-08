@@ -13,7 +13,12 @@ namespace ConsoleUI
             /*
              * Todo follow all comments!! 
              */
+            Car car = new Car() { HasTrunk = "yes", Year = "2012", Make = "Best car", Model = "nature destroyer" };
+            Motorcycle motorcycle = new Motorcycle() { HasSideCart = "yes", Year = "2015", Make = "free bird", Model = "mounten explorer" };
+            Vehicle vehicle2 = new Car() { HasTrunk = "no", Year = "2020", Make = "Tesela", Model = "elecric vroom vroom" };
+            Vehicle vehicle1 = new Motorcycle() { HasSideCart = "no", Year = "2018", Make = "calateral damage", Model = "idk" };
 
+            Motorcycle betterMotorcycle = new Motorcycle();
             #region Vehicles
 
             /*
@@ -32,7 +37,7 @@ namespace ConsoleUI
             */
 
             // Create a list of Vehicle called vehicles
-
+            List<Vehicle> vehicles = new List<Vehicle>();
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * 
@@ -43,10 +48,22 @@ namespace ConsoleUI
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate over each of the properties
              */
-
+            vehicles.Add(vehicle2);
+            vehicles.Add(vehicle1);
+            vehicles.Add(motorcycle);
+            vehicles.Add(car);
+            foreach (var vehicle in vehicles)
+            {
+                Console.WriteLine($"This was made in {vehicle.Year}");
+                Console.WriteLine($"The make is {vehicle.Make}");
+                Console.WriteLine($"The modle is the {vehicle.Make}");
+                Console.WriteLine("");
+                vehicle.DriveVirtual();
+                vehicle.DriveAbstract();
+            }
             // Call each of the drive methods for one car and one motorcycle
-
-            #endregion            
+            //motorcycle.DriveVirtual();
+            #endregion
             Console.ReadLine();
         }
     }
